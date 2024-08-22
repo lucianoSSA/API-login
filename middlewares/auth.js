@@ -10,14 +10,14 @@ const auth = (req, res, next) => {
         return res.status(401).json({ message: 'Acesso negado' })
     }
 
-    // try {
-    //     const decoded = jwt.verify(token.replace('Bearer ', ''), JWT_SECRET)
+     try {
+      const decoded = jwt.verify(token.replace('Bearer ', ''), JWT_SECRET)
 
-    //     console.log(decoded)
+         console.log(decoded)
 
-    // } catch (err) {
-    //     return res.status(401).json({ message: 'token inválido' })
-    // }
+    } catch (err) {
+         return res.status(401).json({ message: 'token inválido' })
+     }
 
     next()
 
